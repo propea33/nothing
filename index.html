@@ -1,0 +1,607 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>NOTHING — The World's First Non-SaaS</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=Manrope:wght@300;400;500;600;700;800&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" rel="stylesheet" />
+
+  <script src="https://cdn.tailwindcss.com?plugins=forms"></script>
+  <script>
+    tailwind.config = {
+      darkMode: 'class',
+      theme: {
+        extend: {
+          colors: {
+            ivory:        '#FFFEF2',
+            ink:          '#0A0A0A',
+            'ink-2':      '#3A3A3A',
+            red:          '#E8211A',
+            'red-dark':   '#B51810',
+            yellow:       '#FFE600',
+            blue:         '#1A1AFF',
+            'blue-light': '#E0E0FF',
+            grey:         '#F0F0EC',
+            'grey-2':     '#D8D8D2',
+          },
+          fontFamily: {
+            headline: ['Space Grotesk', 'sans-serif'],
+            body:     ['Manrope', 'sans-serif'],
+          },
+        },
+      },
+    };
+  </script>
+
+  <link rel="stylesheet" href="style.css" />
+</head>
+
+<body class="overflow-x-hidden">
+
+<!-- ══════════════════════════════════════
+     NAV
+══════════════════════════════════════ -->
+<nav class="fixed top-0 left-0 right-0 z-50">
+  <div class="flex items-center justify-between px-6 md:px-10 h-16 md:h-18 bg-ivory border-b-4 border-ink nb" style="height:68px">
+
+    <a href="#" class="font-headline font-black text-2xl md:text-3xl uppercase tracking-tighter">
+      NOTHING<span style="color:var(--red)">.</span>
+    </a>
+
+    <div class="hidden md:flex items-center gap-8">
+      <a href="#philosophy" class="font-headline font-bold text-sm uppercase tracking-tight hover:underline decoration-2 underline-offset-4">Philosophy</a>
+      <a href="#features"   class="font-headline font-bold text-sm uppercase tracking-tight hover:underline decoration-2 underline-offset-4">Absence</a>
+      <a href="#void"       class="font-headline font-bold text-sm uppercase tracking-tight hover:underline decoration-2 underline-offset-4">The Void</a>
+      <a href="#pricing"    class="font-headline font-bold text-sm uppercase tracking-tight hover:underline decoration-2 underline-offset-4">Pricing</a>
+    </div>
+
+    <div class="hidden md:flex items-center gap-3">
+      <button onclick="toggleDark()" id="dark-btn" class="w-9 h-9 border-2 border-ink flex items-center justify-center nb-btn nb text-xs font-bold" title="Dark mode">
+        <span id="theme-icon" class="material-symbols-outlined" style="font-size:18px">dark_mode</span>
+      </button>
+      <button class="font-headline font-bold text-sm uppercase tracking-tight px-4 py-2 border-2 border-ink nb-btn nb hover:bg-ink hover:text-ivory transition-colors">
+        Login
+      </button>
+      <button class="font-headline font-black text-sm uppercase tracking-tight px-5 py-2.5 border-2 border-ink nb-btn nb" style="background:var(--red);color:#fff;">
+        Get Nothing
+      </button>
+    </div>
+
+    <button id="burger" onclick="toggleNav()" class="md:hidden w-9 h-9 border-2 border-ink flex flex-col items-center justify-center gap-1.5 nb-btn">
+      <span class="block w-5 h-[2px] bg-ink transition-all" id="b1"></span>
+      <span class="block w-5 h-[2px] bg-ink transition-all" id="b2"></span>
+      <span class="block w-5 h-[2px] bg-ink transition-all" id="b3"></span>
+    </button>
+  </div>
+
+  <div id="mobile-nav" class="md:hidden bg-ivory border-b-4 border-ink">
+    <div class="flex flex-col px-6 pt-4 pb-6 gap-4">
+      <a href="#philosophy" onclick="closeNav()" class="font-headline font-black text-lg uppercase tracking-tight border-b-2 border-ink/20 pb-3">Philosophy</a>
+      <a href="#features"   onclick="closeNav()" class="font-headline font-black text-lg uppercase tracking-tight border-b-2 border-ink/20 pb-3">Absence</a>
+      <a href="#void"       onclick="closeNav()" class="font-headline font-black text-lg uppercase tracking-tight border-b-2 border-ink/20 pb-3">The Void</a>
+      <a href="#pricing"    onclick="closeNav()" class="font-headline font-black text-lg uppercase tracking-tight border-b-2 border-ink/20 pb-3">Pricing</a>
+      <button class="font-headline font-black uppercase px-6 py-3 border-2 border-ink nb mt-2 text-sm text-white" style="background:var(--red)">Get Nothing</button>
+    </div>
+  </div>
+</nav>
+
+
+<!-- ══════════════════════════════════════
+     TICKER
+══════════════════════════════════════ -->
+<div class="overflow-hidden border-b-4 border-ink" style="margin-top:68px;background:var(--yellow);padding:10px 0;">
+  <div class="ticker-track">
+    <span class="font-headline font-black uppercase text-sm tracking-widest px-6">Zero features</span><span class="px-3 font-black">✦</span>
+    <span class="font-headline font-black uppercase text-sm tracking-widest px-6">Infinite potential</span><span class="px-3 font-black">✦</span>
+    <span class="font-headline font-black uppercase text-sm tracking-widest px-6">0 MB storage</span><span class="px-3 font-black">✦</span>
+    <span class="font-headline font-black uppercase text-sm tracking-widest px-6">0% uptime guaranteed</span><span class="px-3 font-black">✦</span>
+    <span class="font-headline font-black uppercase text-sm tracking-widest px-6">SOC-2 Compliant (lies)</span><span class="px-3 font-black">✦</span>
+    <span class="font-headline font-black uppercase text-sm tracking-widest px-6">Trusted by nobody</span><span class="px-3 font-black">✦</span>
+    <span class="font-headline font-black uppercase text-sm tracking-widest px-6">AI-powered nothingness</span><span class="px-3 font-black">✦</span>
+    <!-- duplicate for seamless loop -->
+    <span class="font-headline font-black uppercase text-sm tracking-widest px-6">Zero features</span><span class="px-3 font-black">✦</span>
+    <span class="font-headline font-black uppercase text-sm tracking-widest px-6">Infinite potential</span><span class="px-3 font-black">✦</span>
+    <span class="font-headline font-black uppercase text-sm tracking-widest px-6">0 MB storage</span><span class="px-3 font-black">✦</span>
+    <span class="font-headline font-black uppercase text-sm tracking-widest px-6">0% uptime guaranteed</span><span class="px-3 font-black">✦</span>
+    <span class="font-headline font-black uppercase text-sm tracking-widest px-6">SOC-2 Compliant (lies)</span><span class="px-3 font-black">✦</span>
+    <span class="font-headline font-black uppercase text-sm tracking-widest px-6">Trusted by nobody</span><span class="px-3 font-black">✦</span>
+    <span class="font-headline font-black uppercase text-sm tracking-widest px-6">AI-powered nothingness</span><span class="px-3 font-black">✦</span>
+  </div>
+</div>
+
+
+<!-- ══════════════════════════════════════
+     HERO
+══════════════════════════════════════ -->
+<section id="hero" class="relative overflow-hidden" style="background:var(--ivory);">
+
+  <!-- BG grid -->
+  <div class="absolute inset-0 pointer-events-none" style="opacity:0.04;">
+    <svg width="100%" height="100%"><defs><pattern id="g" width="48" height="48" patternUnits="userSpaceOnUse"><path d="M48 0L0 0 0 48" fill="none" stroke="#0A0A0A" stroke-width="1"/></pattern></defs><rect width="100%" height="100%" fill="url(#g)"/></svg>
+  </div>
+
+  <!-- Decorative corner -->
+  <div class="absolute top-0 right-0 w-96 h-96 opacity-30 pointer-events-none" style="background:var(--blue-light);clip-path:polygon(100% 0,100% 100%,0 0);"></div>
+
+  <div class="max-w-7xl mx-auto px-6 md:px-10 py-20 md:py-28 relative z-10">
+    <div class="grid lg:grid-cols-2 gap-12 xl:gap-20 items-center">
+
+      <!-- LEFT -->
+      <div>
+        <div class="reveal">
+          <span class="inline-flex items-center gap-2 border-2 border-ink px-3 py-1.5 text-xs font-headline font-bold uppercase tracking-widest nb mb-8" style="background:var(--yellow);">
+            <span class="w-2 h-2 rounded-full bg-ink inline-block"></span>
+            Version 0.0.0 — Stable
+          </span>
+        </div>
+
+        <h1 class="font-headline font-black leading-[0.87] tracking-tighter mb-8">
+          <div class="reveal d1 text-[clamp(2.8rem,8vw,6rem)] uppercase" style="color:var(--ink)">The world's</div>
+          <div class="reveal d2 text-[clamp(2.8rem,8vw,6rem)] uppercase" style="color:var(--ink)">
+            first <span style="color:var(--red);font-style:italic;">SaaS</span>
+          </div>
+          <div class="reveal d3 text-[clamp(2.8rem,8vw,6rem)] uppercase" style="color:var(--ink)">that does</div>
+          <div class="reveal d4 text-[clamp(2.8rem,8vw,6rem)] uppercase" style="color:var(--ink)">absolutely</div>
+          <div class="reveal d5 text-[clamp(2.8rem,8vw,6rem)] uppercase inline-flex items-baseline gap-4">
+            <span style="color:var(--ink)">nothing.</span>
+            <span class="border-4 border-ink px-2 py-0 text-[clamp(1rem,2.5vw,2rem)] font-black align-middle nb" style="background:var(--blue);color:#fff;">™</span>
+          </div>
+        </h1>
+
+        <p class="reveal d5 text-lg md:text-xl max-w-xl mb-10 leading-relaxed font-body" style="color:var(--ink-2);">
+          Finally, a platform as empty as your calendar on a Sunday.<br/>
+          No features, no bugs, no updates. Just pure, unadulterated void.
+        </p>
+
+        <div class="reveal d5 flex flex-col sm:flex-row gap-4">
+          <button class="font-headline font-black text-lg uppercase px-8 py-5 border-4 border-ink nb-btn nb-xl text-white" style="background:var(--red);">
+            Start Your Void Journey →
+          </button>
+          <button class="font-headline font-bold text-sm uppercase px-6 py-5 border-4 border-ink nb-btn nb hover:bg-ink hover:text-ivory transition-colors">
+            Watch Nothing Happen
+          </button>
+        </div>
+
+        <!-- Social proof -->
+        <div class="reveal mt-10 flex items-center gap-5">
+          <div class="flex -space-x-3">
+            <div class="w-9 h-9 rounded-full border-2 border-ink flex items-center justify-center text-xs font-black" style="background:var(--yellow)">N</div>
+            <div class="w-9 h-9 rounded-full border-2 border-ink flex items-center justify-center text-xs font-black" style="background:var(--blue);color:#fff">O</div>
+            <div class="w-9 h-9 rounded-full border-2 border-ink flex items-center justify-center text-xs font-black" style="background:var(--red);color:#fff">N</div>
+            <div class="w-9 h-9 rounded-full border-2 border-ink flex items-center justify-center text-xs font-black" style="background:var(--yellow)">E</div>
+          </div>
+          <p class="text-xs font-bold uppercase tracking-widest" style="color:var(--ink-2)">
+            <span style="color:var(--red)">0 users</span> doing nothing right now
+          </p>
+        </div>
+      </div>
+
+      <!-- RIGHT: void canvas -->
+      <div class="reveal d3 relative">
+        <div class="absolute -top-6 -left-6 w-48 h-48 border-4 border-ink float-slow" style="background:var(--yellow);z-index:-1;"></div>
+        <div class="absolute -bottom-6 -right-6 w-32 h-32 border-4 border-ink float" style="background:var(--blue-light);z-index:-1;"></div>
+
+        <div class="border-4 border-ink nb-xl bg-ink p-6 relative cursor-pointer" onclick="voidClick(this)">
+          <div class="w-full aspect-square relative overflow-hidden flex items-center justify-center" style="background:#0A0A0A;">
+            <div class="absolute w-[85%] h-[85%] rounded-full border-2 spin-slow" style="border-color:rgba(255,230,0,0.2)"></div>
+            <div class="absolute w-[65%] h-[65%] rounded-full border-2 spin-rev" style="border-color:rgba(232,33,26,0.3)"></div>
+            <div class="absolute w-[42%] h-[42%] rounded-full border-2 spin-slow" style="border-color:rgba(26,26,255,0.4);animation-duration:7s"></div>
+            <div class="absolute w-16 h-16 rounded-full pulse-ring" style="background:var(--yellow);opacity:0.15;"></div>
+            <div id="orb" class="w-14 h-14 rounded-full border-2 border-ink float transition-all duration-500" style="background:var(--yellow);box-shadow:0 0 40px 10px rgba(255,230,0,0.4);"></div>
+            <span class="absolute top-3 left-3 text-[10px] font-headline font-black uppercase tracking-widest" style="color:rgba(255,230,0,0.5)">VOID.EXE</span>
+            <span class="absolute bottom-3 right-3 text-[10px] font-headline font-black uppercase tracking-widest" style="color:rgba(255,230,0,0.5)">STATUS: EMPTY</span>
+          </div>
+
+          <div class="flex items-center justify-between mt-4">
+            <div>
+              <p class="font-headline font-black text-sm uppercase text-white">Live Void Feed</p>
+              <p class="text-xs font-body mt-0.5" style="color:#666">Last event: never</p>
+            </div>
+            <div class="border-2 px-3 py-1" style="background:var(--yellow);border-color:var(--yellow);">
+              <span class="font-headline font-black text-xs uppercase text-ink">0 events</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+
+<!-- ══════════════════════════════════════
+     STATS BAR
+══════════════════════════════════════ -->
+<section id="philosophy" class="border-y-4 border-ink" style="background:var(--ink);">
+  <div class="max-w-7xl mx-auto px-6 md:px-10">
+    <div class="grid grid-cols-2 md:grid-cols-4">
+      <div class="reveal border-r-2 border-white/10 px-8 py-10 text-center">
+        <div class="font-headline font-black text-5xl md:text-6xl mb-2" style="color:var(--yellow)">0</div>
+        <p class="font-body text-xs uppercase tracking-widest font-semibold" style="color:#888">Features shipped</p>
+      </div>
+      <div class="reveal d1 md:border-r-2 border-white/10 px-8 py-10 text-center">
+        <div class="font-headline font-black text-5xl md:text-6xl mb-2" style="color:var(--red)">0</div>
+        <p class="font-body text-xs uppercase tracking-widest font-semibold" style="color:#888">Bugs fixed</p>
+      </div>
+      <div class="reveal d2 border-r-2 border-white/10 px-8 py-10 text-center border-t-2 md:border-t-0">
+        <div class="font-headline font-black text-5xl md:text-6xl mb-2" style="color:#E0E0FF">∞</div>
+        <p class="font-body text-xs uppercase tracking-widest font-semibold" style="color:#888">Empty promises</p>
+      </div>
+      <div class="reveal d3 px-8 py-10 text-center border-t-2 md:border-t-0">
+        <div class="font-headline font-black text-5xl md:text-6xl mb-2 text-white">0</div>
+        <p class="font-body text-xs uppercase tracking-widest font-semibold" style="color:#888">Lines of code</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- ══════════════════════════════════════
+     FEATURES
+══════════════════════════════════════ -->
+<section id="features" class="py-24" style="background:var(--ivory);">
+  <div class="max-w-7xl mx-auto px-6 md:px-10">
+
+    <div class="flex flex-col md:flex-row justify-between items-end mb-14 gap-6">
+      <h2 class="reveal font-headline font-black text-5xl md:text-6xl uppercase tracking-tighter leading-none">
+        Our<br/>Non&#8209;Features
+      </h2>
+      <p class="reveal d2 font-headline font-bold text-xs uppercase tracking-widest max-w-xs text-right" style="color:var(--ink-2)">
+        Engineered for<br/>maximum inactivity
+      </p>
+    </div>
+
+    <div class="grid md:grid-cols-3 border-4 border-ink">
+
+      <article class="reveal border-r-4 border-ink p-10 group cursor-pointer transition-colors duration-300" style="background:var(--ivory);" onmouseenter="this.style.background='var(--red)';this.style.color='#fff'" onmouseleave="this.style.background='var(--ivory)';this.style.color=''">
+        <div class="w-14 h-14 border-2 border-ink flex items-center justify-center mb-8 nb" style="background:var(--yellow);">
+          <span class="material-symbols-outlined text-3xl text-ink">air</span>
+        </div>
+        <h3 class="font-headline font-black text-2xl uppercase tracking-tight mb-4">Infinite Stillness</h3>
+        <p class="font-body leading-relaxed text-sm">Our servers are perpetually in a state of meditation. No data processed, no energy wasted. Pure hardware yoga.</p>
+        <div class="mt-8 flex items-center gap-2 text-xs font-headline font-bold uppercase tracking-widest opacity-0 group-hover:opacity-100 transition-opacity">
+          Learn nothing <span class="material-symbols-outlined text-base">arrow_forward</span>
+        </div>
+      </article>
+
+      <article class="reveal d2 border-r-4 border-ink p-10 group cursor-pointer transition-colors duration-300" style="background:var(--ivory);" onmouseenter="this.style.background='var(--blue)';this.style.color='#fff'" onmouseleave="this.style.background='var(--ivory)';this.style.color=''">
+        <div class="w-14 h-14 border-2 border-ink flex items-center justify-center mb-8 nb" style="background:var(--blue-light);">
+          <span class="material-symbols-outlined text-3xl text-ink">balance</span>
+        </div>
+        <h3 class="font-headline font-black text-2xl uppercase tracking-tight mb-4">Zero Overhead</h3>
+        <p class="font-body leading-relaxed text-sm">Scale to zero and stay there. Our architecture is so lightweight it literally doesn't exist. Truly serverless.</p>
+        <div class="mt-8 flex items-center gap-2 text-xs font-headline font-bold uppercase tracking-widest opacity-0 group-hover:opacity-100 transition-opacity">
+          Learn nothing <span class="material-symbols-outlined text-base">arrow_forward</span>
+        </div>
+      </article>
+
+      <article class="reveal d4 p-10 group cursor-pointer transition-colors duration-300" style="background:var(--ivory);" onmouseenter="this.style.background='var(--yellow)'" onmouseleave="this.style.background='var(--ivory)'">
+        <div class="w-14 h-14 border-2 border-ink flex items-center justify-center mb-8 nb" style="background:#D8D8D2;">
+          <span class="material-symbols-outlined text-3xl text-ink">visibility</span>
+        </div>
+        <h3 class="font-headline font-black text-2xl uppercase tracking-tight mb-4">Pure Transparency</h3>
+        <p class="font-body leading-relaxed text-sm">We promise nothing and deliver exactly that. Full visibility into our total lack of output. Radical honesty.</p>
+        <div class="mt-8 flex items-center gap-2 text-xs font-headline font-bold uppercase tracking-widest opacity-0 group-hover:opacity-100 transition-opacity">
+          Learn nothing <span class="material-symbols-outlined text-base">arrow_forward</span>
+        </div>
+      </article>
+
+    </div>
+  </div>
+</section>
+
+
+<!-- ══════════════════════════════════════
+     TESTIMONIALS MARQUEE
+══════════════════════════════════════ -->
+<section id="void" class="py-20 border-y-4 border-ink overflow-hidden" style="background:#F0F0EC;">
+  <div class="max-w-7xl mx-auto px-6 md:px-10 mb-14 text-center">
+    <h2 class="reveal font-headline font-black text-5xl md:text-6xl uppercase tracking-tighter">What our users<br/>didn't say</h2>
+    <p class="reveal d2 font-body mt-3 text-base" style="color:var(--ink-2);">Real quotes, synthetically generated from real silence.</p>
+  </div>
+
+  <div class="flex gap-5 overflow-hidden">
+    <div class="flex gap-5" style="animation:ticker 28s linear infinite;white-space:nowrap;">
+
+      <div class="inline-flex flex-col gap-2 border-2 border-ink p-5 nb" style="min-width:270px;white-space:normal;background:#fff;">
+        <p class="font-body text-sm leading-relaxed">"I signed up and nothing happened. Exactly as promised."</p>
+        <p class="font-headline font-bold text-xs uppercase" style="color:var(--ink-2)">— CEO, Absolutely Nothing LLC</p>
+      </div>
+
+      <div class="inline-flex flex-col gap-2 border-2 border-ink p-5 nb" style="min-width:270px;white-space:normal;background:var(--yellow);">
+        <p class="font-body text-sm leading-relaxed text-ink">"Their dashboard didn't load. 10/10 would not use again."</p>
+        <p class="font-headline font-bold text-xs uppercase" style="color:rgba(10,10,10,0.5)">— Anonymous Void Enthusiast</p>
+      </div>
+
+      <div class="inline-flex flex-col gap-2 border-2 border-ink p-5 nb" style="min-width:270px;white-space:normal;background:var(--red);">
+        <p class="font-body text-sm leading-relaxed text-white">"ROI was 0%. That's what I expected. Revolutionary."</p>
+        <p class="font-headline font-bold text-xs uppercase" style="color:rgba(255,255,255,0.6)">— CFO, Null Ventures</p>
+      </div>
+
+      <div class="inline-flex flex-col gap-2 border-2 border-ink p-5 nb" style="min-width:270px;white-space:normal;background:#fff;">
+        <p class="font-body text-sm leading-relaxed">"Notion, Linear, Jira. Nothing beats all of them."</p>
+        <p class="font-headline font-bold text-xs uppercase" style="color:var(--ink-2)">— Principal Nothing Engineer</p>
+      </div>
+
+      <div class="inline-flex flex-col gap-2 border-2 border-ink p-5 nb" style="min-width:270px;white-space:normal;background:var(--blue);">
+        <p class="font-body text-sm leading-relaxed text-white">"Cancelled after day one. Nothing happened. Perfect."</p>
+        <p class="font-headline font-bold text-xs uppercase" style="color:rgba(255,255,255,0.6)">— Head of Non-Operations</p>
+      </div>
+
+      <!-- duplicate for seamless loop -->
+      <div class="inline-flex flex-col gap-2 border-2 border-ink p-5 nb" style="min-width:270px;white-space:normal;background:#fff;">
+        <p class="font-body text-sm leading-relaxed">"I signed up and nothing happened. Exactly as promised."</p>
+        <p class="font-headline font-bold text-xs uppercase" style="color:var(--ink-2)">— CEO, Absolutely Nothing LLC</p>
+      </div>
+      <div class="inline-flex flex-col gap-2 border-2 border-ink p-5 nb" style="min-width:270px;white-space:normal;background:var(--yellow);">
+        <p class="font-body text-sm leading-relaxed text-ink">"Their dashboard didn't load. 10/10 would not use again."</p>
+        <p class="font-headline font-bold text-xs uppercase" style="color:rgba(10,10,10,0.5)">— Anonymous Void Enthusiast</p>
+      </div>
+      <div class="inline-flex flex-col gap-2 border-2 border-ink p-5 nb" style="min-width:270px;white-space:normal;background:var(--red);">
+        <p class="font-body text-sm leading-relaxed text-white">"ROI was 0%. That's what I expected. Revolutionary."</p>
+        <p class="font-headline font-bold text-xs uppercase" style="color:rgba(255,255,255,0.6)">— CFO, Null Ventures</p>
+      </div>
+      <div class="inline-flex flex-col gap-2 border-2 border-ink p-5 nb" style="min-width:270px;white-space:normal;background:#fff;">
+        <p class="font-body text-sm leading-relaxed">"Notion, Linear, Jira. Nothing beats all of them."</p>
+        <p class="font-headline font-bold text-xs uppercase" style="color:var(--ink-2)">— Principal Nothing Engineer</p>
+      </div>
+      <div class="inline-flex flex-col gap-2 border-2 border-ink p-5 nb" style="min-width:270px;white-space:normal;background:var(--blue);">
+        <p class="font-body text-sm leading-relaxed text-white">"Cancelled after day one. Nothing happened. Perfect."</p>
+        <p class="font-headline font-bold text-xs uppercase" style="color:rgba(255,255,255,0.6)">— Head of Non-Operations</p>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+
+<!-- ══════════════════════════════════════
+     PRICING
+══════════════════════════════════════ -->
+<section id="pricing" class="py-24" style="background:var(--ivory);">
+  <div class="max-w-7xl mx-auto px-6 md:px-10">
+
+    <div class="text-center mb-16">
+      <h2 class="reveal font-headline font-black text-5xl md:text-7xl uppercase tracking-tighter mb-4">Pick Your<br/>Level of Void</h2>
+      <p class="reveal d2 font-body text-base" style="color:var(--ink-2)">All plans include 0 MB of storage and 0% uptime.<br/><span class="font-semibold">Cancel anytime. Nothing will change.</span></p>
+    </div>
+
+    <div class="grid lg:grid-cols-3 gap-6 items-start">
+
+      <!-- Starter -->
+      <div class="reveal border-4 border-ink p-8 nb flex flex-col bg-white">
+        <div class="mb-8">
+          <span class="inline-block border-2 border-ink px-2 py-0.5 text-xs font-headline font-bold uppercase tracking-widest mb-4" style="background:#F0F0EC;">Tier 01</span>
+          <h3 class="font-headline font-black text-3xl uppercase mb-4">Starter</h3>
+          <div class="flex items-end gap-1">
+            <span class="font-headline font-black text-6xl leading-none">$5</span>
+            <span class="font-bold mb-2" style="color:var(--ink-2)">/mo</span>
+          </div>
+          <p class="text-xs font-body mt-1" style="color:#999">Or not at all.</p>
+        </div>
+        <ul class="space-y-3 mb-10 flex-grow">
+          <li class="flex items-center gap-3">
+            <span class="w-5 h-5 border-2 border-ink flex items-center justify-center flex-shrink-0" style="background:var(--yellow);">
+              <span class="material-symbols-outlined text-ink" style="font-size:13px">check</span>
+            </span>
+            <span class="font-body font-semibold text-sm uppercase tracking-tight">Basic Nothingness</span>
+          </li>
+          <li class="flex items-center gap-3">
+            <span class="w-5 h-5 border-2 border-ink flex items-center justify-center flex-shrink-0" style="background:var(--yellow);">
+              <span class="material-symbols-outlined text-ink" style="font-size:13px">check</span>
+            </span>
+            <span class="font-body font-semibold text-sm uppercase tracking-tight">Community Silence</span>
+          </li>
+          <li class="flex items-center gap-3 opacity-35">
+            <span class="w-5 h-5 border-2 border-ink flex items-center justify-center flex-shrink-0 bg-white">
+              <span class="material-symbols-outlined text-ink" style="font-size:13px">close</span>
+            </span>
+            <span class="font-body font-semibold text-sm uppercase tracking-tight strike">Advanced Vacuum</span>
+          </li>
+          <li class="flex items-center gap-3 opacity-35">
+            <span class="w-5 h-5 border-2 border-ink flex items-center justify-center flex-shrink-0 bg-white">
+              <span class="material-symbols-outlined text-ink" style="font-size:13px">close</span>
+            </span>
+            <span class="font-body font-semibold text-sm uppercase tracking-tight strike">Priority Silence</span>
+          </li>
+        </ul>
+        <button class="w-full py-4 border-4 border-ink font-headline font-black uppercase text-sm tracking-tight nb-btn nb hover:bg-ink hover:text-ivory transition-colors">
+          Select Void
+        </button>
+      </div>
+
+      <!-- Pro (featured) -->
+      <div class="reveal d2 relative border-4 border-ink p-8 nb-xl flex flex-col lg:-translate-y-5" style="background:var(--ink);">
+        <div class="absolute -top-5 left-1/2 -translate-x-1/2 border-4 border-ink px-5 py-1.5 font-headline font-black uppercase text-xs tracking-widest whitespace-nowrap" style="background:var(--yellow);color:var(--ink);">
+          Most Empty ✦
+        </div>
+
+        <div class="mb-8 mt-4">
+          <span class="inline-block border-2 px-2 py-0.5 text-xs font-headline font-bold uppercase tracking-widest mb-4 text-ink" style="background:var(--yellow);border-color:var(--yellow);">Tier 02</span>
+          <h3 class="font-headline font-black text-3xl uppercase mb-4 text-white">Pro</h3>
+          <div class="flex items-end gap-1">
+            <span class="font-headline font-black text-6xl leading-none text-white">$10</span>
+            <span class="font-bold mb-2" style="color:#666">/mo</span>
+          </div>
+          <p class="text-xs font-body mt-1" style="color:#666">Twice the price. Same nothing.</p>
+        </div>
+
+        <ul class="space-y-3 mb-10 flex-grow">
+          <li class="flex items-center gap-3">
+            <span class="w-5 h-5 border-2 flex items-center justify-center flex-shrink-0" style="background:var(--yellow);border-color:var(--yellow);">
+              <span class="material-symbols-outlined text-ink" style="font-size:13px">check</span>
+            </span>
+            <span class="font-body font-semibold text-sm uppercase tracking-tight text-white">Premium Absence</span>
+          </li>
+          <li class="flex items-center gap-3">
+            <span class="w-5 h-5 border-2 flex items-center justify-center flex-shrink-0" style="background:var(--yellow);border-color:var(--yellow);">
+              <span class="material-symbols-outlined text-ink" style="font-size:13px">check</span>
+            </span>
+            <span class="font-body font-semibold text-sm uppercase tracking-tight text-white">Priority Non-Support</span>
+          </li>
+          <li class="flex items-center gap-3">
+            <span class="w-5 h-5 border-2 flex items-center justify-center flex-shrink-0" style="background:var(--yellow);border-color:var(--yellow);">
+              <span class="material-symbols-outlined text-ink" style="font-size:13px">check</span>
+            </span>
+            <span class="font-body font-semibold text-sm uppercase tracking-tight text-white">Ad-Free Emptiness</span>
+          </li>
+          <li class="flex items-center gap-3">
+            <span class="w-5 h-5 border-2 flex items-center justify-center flex-shrink-0" style="background:var(--yellow);border-color:var(--yellow);">
+              <span class="material-symbols-outlined text-ink" style="font-size:13px">check</span>
+            </span>
+            <span class="font-body font-semibold text-sm uppercase tracking-tight text-white">Custom Void Domain</span>
+          </li>
+        </ul>
+
+        <button class="w-full py-4 border-4 font-headline font-black uppercase text-sm tracking-tight text-ink nb-btn nb" style="background:var(--yellow);border-color:var(--yellow);">
+          Go Pro
+        </button>
+      </div>
+
+      <!-- Enterprise -->
+      <div class="reveal d4 border-4 border-ink p-8 nb flex flex-col" style="background:var(--red);">
+        <div class="mb-8">
+          <span class="inline-block border-2 border-white/40 px-2 py-0.5 text-xs font-headline font-bold uppercase tracking-widest mb-4 text-white">Tier 03</span>
+          <h3 class="font-headline font-black text-3xl uppercase mb-4 text-white">Enterprise</h3>
+          <div class="flex items-end gap-1">
+            <span class="font-headline font-black text-6xl leading-none text-white">$20</span>
+            <span class="font-bold mb-2 text-white/60">/mo</span>
+          </div>
+          <p class="text-xs font-body mt-1 text-white/60">Per seat. No seats available.</p>
+        </div>
+
+        <ul class="space-y-3 mb-10 flex-grow">
+          <li class="flex items-center gap-3">
+            <span class="w-5 h-5 border-2 border-white flex items-center justify-center flex-shrink-0 bg-white">
+              <span class="material-symbols-outlined text-ink" style="font-size:13px">check</span>
+            </span>
+            <span class="font-body font-semibold text-sm uppercase tracking-tight text-white">Corporate Oblivion</span>
+          </li>
+          <li class="flex items-center gap-3">
+            <span class="w-5 h-5 border-2 border-white flex items-center justify-center flex-shrink-0 bg-white">
+              <span class="material-symbols-outlined text-ink" style="font-size:13px">check</span>
+            </span>
+            <span class="font-body font-semibold text-sm uppercase tracking-tight text-white">Dedicated Void</span>
+          </li>
+          <li class="flex items-center gap-3">
+            <span class="w-5 h-5 border-2 border-white flex items-center justify-center flex-shrink-0 bg-white">
+              <span class="material-symbols-outlined text-ink" style="font-size:13px">check</span>
+            </span>
+            <span class="font-body font-semibold text-sm uppercase tracking-tight text-white">SOC-2 Compliance <span class="text-white/60">(lies)</span></span>
+          </li>
+          <li class="flex items-center gap-3">
+            <span class="w-5 h-5 border-2 border-white flex items-center justify-center flex-shrink-0 bg-white">
+              <span class="material-symbols-outlined text-ink" style="font-size:13px">check</span>
+            </span>
+            <span class="font-body font-semibold text-sm uppercase tracking-tight text-white">24/7 No Support</span>
+          </li>
+        </ul>
+
+        <button class="w-full py-4 border-4 border-white bg-white font-headline font-black uppercase text-sm tracking-tight text-ink nb-btn nb hover:bg-ink hover:text-white hover:border-ink transition-colors">
+          Enterprise Nothing
+        </button>
+      </div>
+
+    </div>
+
+    <!-- FAQ -->
+    <div class="reveal mt-14 max-w-3xl mx-auto">
+      <button onclick="toggleFaq()" class="w-full flex items-center justify-between border-4 border-ink px-6 py-4 font-headline font-black uppercase text-sm tracking-tight nb-btn nb hover:bg-ink hover:text-ivory transition-colors">
+        <span>Frequently Asked Nothing</span>
+        <span id="faq-icon" class="material-symbols-outlined">expand_more</span>
+      </button>
+      <div id="faq" class="faq-body border-l-4 border-r-4 border-b-4 border-ink">
+        <div class="grid md:grid-cols-2">
+          <div class="p-6 border-r-2 border-b-2 border-ink">
+            <h4 class="font-headline font-black uppercase text-sm mb-2">What does NOTHING actually do?</h4>
+            <p class="font-body text-sm" style="color:var(--ink-2)">Nothing. We are extremely literal about this.</p>
+          </div>
+          <div class="p-6 border-b-2 border-ink">
+            <h4 class="font-headline font-black uppercase text-sm mb-2">Is there a free trial?</h4>
+            <p class="font-body text-sm" style="color:var(--ink-2)">Your entire life has been a free trial of doing nothing.</p>
+          </div>
+          <div class="p-6 border-r-2 border-ink">
+            <h4 class="font-headline font-black uppercase text-sm mb-2">Can I integrate with my tools?</h4>
+            <p class="font-body text-sm" style="color:var(--ink-2)">Yes. NOTHING integrates with everything, because it does nothing to them.</p>
+          </div>
+          <div class="p-6">
+            <h4 class="font-headline font-black uppercase text-sm mb-2">What's your data retention policy?</h4>
+            <p class="font-body text-sm" style="color:var(--ink-2)">We retain zero data for zero years. Maximum retention of nothing.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+
+<!-- ══════════════════════════════════════
+     FINAL CTA
+══════════════════════════════════════ -->
+<section class="py-24 border-t-4 border-ink" style="background:var(--ink);">
+  <div class="max-w-5xl mx-auto px-6 md:px-10">
+    <div class="relative overflow-hidden border-4 border-white/20 p-12 md:p-20 text-center">
+
+      <div class="absolute -top-20 -right-20 w-56 h-56 rounded-full border-4 float-slow pointer-events-none" style="border-color:rgba(255,230,0,0.15);"></div>
+      <div class="absolute -bottom-20 -left-20 w-72 h-72 border-4 rotate-12 float pointer-events-none" style="border-color:rgba(232,33,26,0.2);"></div>
+      <div class="absolute top-6 left-6 font-headline font-black pointer-events-none select-none" style="font-size:8rem;line-height:1;color:rgba(255,255,255,0.03);">∅</div>
+
+      <div class="relative z-10">
+        <h2 class="reveal font-headline font-black text-5xl md:text-7xl uppercase tracking-tighter text-white mb-6 leading-[0.88]">
+          Don't wait.<br/><span style="color:var(--yellow)">Do nothing.</span>
+        </h2>
+        <p class="reveal d2 font-headline font-bold text-xs uppercase tracking-widest mb-12 max-w-sm mx-auto" style="color:#666">
+          Get exclusive updates about our total lack of progress.
+        </p>
+
+        <form class="reveal d3 flex flex-col sm:flex-row max-w-md mx-auto border-4 border-white nb-xl" onsubmit="handleSubmit(event)">
+          <input
+            type="email"
+            placeholder="YOUR@EMAIL.VOID"
+            class="void-input flex-grow bg-white text-ink px-5 py-4 font-headline font-bold uppercase text-sm tracking-tight placeholder:text-grey-2 border-none"
+            style="min-width:0;"
+          />
+          <button type="submit" class="px-8 py-4 font-headline font-black uppercase tracking-widest text-sm whitespace-nowrap text-ink border-l-4 border-white transition-colors hover:opacity-90" style="background:var(--yellow);">
+            Join void
+          </button>
+        </form>
+
+        <div id="success-msg" class="hidden mt-5 font-headline font-bold uppercase tracking-widest text-sm" style="color:var(--yellow)">
+          ✓ You're in. Nothing will arrive shortly.
+        </div>
+
+        <p class="reveal d4 mt-6 text-xs font-body" style="color:#555">We won't email you. We won't do anything.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- ══════════════════════════════════════
+     FOOTER
+══════════════════════════════════════ -->
+<footer class="border-t-4 border-ink px-6 md:px-10 py-10" style="background:var(--ivory);">
+  <div class="max-w-7xl mx-auto flex flex-col md:flex-row justify-between items-center gap-6">
+    <div class="font-headline font-black text-2xl uppercase tracking-tighter">
+      NOTHING<span style="color:var(--red)">.</span>
+    </div>
+    <div class="flex flex-wrap justify-center gap-6 md:gap-10">
+      <a href="#" class="font-headline font-bold text-xs uppercase tracking-widest hover:underline decoration-2 underline-offset-4" style="color:var(--ink-2)">Terms of Silence</a>
+      <a href="#" class="font-headline font-bold text-xs uppercase tracking-widest hover:underline decoration-2 underline-offset-4" style="color:var(--ink-2)">Privacy of None</a>
+      <a href="#" class="font-headline font-bold text-xs uppercase tracking-widest hover:underline decoration-2 underline-offset-4" style="color:var(--ink-2)">Contact the Void</a>
+      <a href="#" class="font-headline font-bold text-xs uppercase tracking-widest hover:underline decoration-2 underline-offset-4" style="color:var(--ink-2)">Non-Blog</a>
+    </div>
+    <p class="font-headline font-semibold text-xs uppercase tracking-widest" style="color:#aaa">
+      © 2024 NOTHING. All rights withdrawn.
+    </p>
+  </div>
+</footer>
+
+<script src="script.js"></script>
+</body>
+</html>

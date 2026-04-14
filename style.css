@@ -1,0 +1,76 @@
+:root {
+  --red:    #E8211A;
+  --yellow: #FFE600;
+  --blue:   #1A1AFF;
+  --ink:    #0A0A0A;
+  --ivory:  #FFFEF2;
+  --bs:     5px 5px 0px 0px var(--ink);
+  --bs-lg:  8px 8px 0px 0px var(--ink);
+  --bs-xl:  12px 12px 0px 0px var(--ink);
+}
+
+* { box-sizing: border-box; }
+body { font-family: 'Manrope', sans-serif; background: var(--ivory); color: var(--ink); }
+
+/* ── Neo-brutal shadows ── */
+.nb    { box-shadow: var(--bs); }
+.nb-lg { box-shadow: var(--bs-lg); }
+.nb-xl { box-shadow: var(--bs-xl); }
+
+.nb-btn {
+  transition: transform 0.12s ease, box-shadow 0.12s ease;
+}
+.nb-btn:hover  { transform: translate(-2px,-2px); box-shadow: 7px 7px 0px 0px var(--ink); }
+.nb-btn:active { transform: translate(3px,3px);  box-shadow: 0px 0px 0px 0px var(--ink); }
+
+/* ── Scroll reveal ── */
+.reveal { opacity: 0; transform: translateY(24px); transition: opacity 0.65s ease, transform 0.65s ease; }
+.reveal.visible { opacity: 1; transform: translateY(0); }
+.d1 { transition-delay: 0.1s; }
+.d2 { transition-delay: 0.2s; }
+.d3 { transition-delay: 0.3s; }
+.d4 { transition-delay: 0.4s; }
+.d5 { transition-delay: 0.5s; }
+
+/* ── Ticker ── */
+.ticker-track { display: flex; white-space: nowrap; animation: ticker 22s linear infinite; }
+.ticker-track:hover { animation-play-state: paused; }
+@keyframes ticker { from { transform: translateX(0); } to { transform: translateX(-50%); } }
+
+/* ── Float ── */
+@keyframes float { 0%,100% { transform: translateY(0); } 50% { transform: translateY(-14px); } }
+.float { animation: float 4s ease-in-out infinite; }
+.float-slow { animation: float 6s ease-in-out infinite; }
+
+/* ── Spin ── */
+@keyframes spin-slow { to { transform: rotate(360deg); } }
+.spin-slow { animation: spin-slow 14s linear infinite; }
+.spin-rev  { animation: spin-slow 9s linear infinite reverse; }
+
+/* ── Pulse ring ── */
+@keyframes pulse-ring {
+  0%   { transform: scale(0.9); opacity: 0.7; }
+  70%  { transform: scale(1.4); opacity: 0; }
+  100% { transform: scale(1.4); opacity: 0; }
+}
+.pulse-ring { animation: pulse-ring 2s ease-out infinite; }
+
+/* ── Mobile nav ── */
+#mobile-nav { max-height: 0; overflow: hidden; transition: max-height 0.35s ease; }
+#mobile-nav.open { max-height: 500px; }
+
+/* ── FAQ ── */
+.faq-body { max-height: 0; overflow: hidden; transition: max-height 0.3s ease; }
+.faq-body.open { max-height: 200px; }
+
+/* ── Strikethrough feature ── */
+.strike { position: relative; color: #9a9a9a; }
+.strike::after {
+  content: '';
+  position: absolute; left: 0; top: 50%;
+  width: 100%; height: 2px;
+  background: var(--ink); opacity: 0.3;
+}
+
+/* ── Input ── */
+.void-input:focus { outline: none; box-shadow: inset 0 0 0 3px var(--yellow); }
