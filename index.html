@@ -93,125 +93,81 @@
 
 
 <!-- ══════════════════════════════════════
-     TICKER
-══════════════════════════════════════ -->
-<div class="overflow-hidden border-b-4 border-ink" style="margin-top:68px;background:var(--yellow);padding:10px 0;">
-  <div class="ticker-track">
-    <span class="font-headline font-black uppercase text-sm tracking-widest px-6">Zero features</span><span class="px-3 font-black">✦</span>
-    <span class="font-headline font-black uppercase text-sm tracking-widest px-6">Infinite potential</span><span class="px-3 font-black">✦</span>
-    <span class="font-headline font-black uppercase text-sm tracking-widest px-6">0 MB storage</span><span class="px-3 font-black">✦</span>
-    <span class="font-headline font-black uppercase text-sm tracking-widest px-6">0% uptime guaranteed</span><span class="px-3 font-black">✦</span>
-    <span class="font-headline font-black uppercase text-sm tracking-widest px-6">SOC-2 Compliant (lies)</span><span class="px-3 font-black">✦</span>
-    <span class="font-headline font-black uppercase text-sm tracking-widest px-6">Trusted by nobody</span><span class="px-3 font-black">✦</span>
-    <span class="font-headline font-black uppercase text-sm tracking-widest px-6">AI-powered nothingness</span><span class="px-3 font-black">✦</span>
-    <!-- duplicate for seamless loop -->
-    <span class="font-headline font-black uppercase text-sm tracking-widest px-6">Zero features</span><span class="px-3 font-black">✦</span>
-    <span class="font-headline font-black uppercase text-sm tracking-widest px-6">Infinite potential</span><span class="px-3 font-black">✦</span>
-    <span class="font-headline font-black uppercase text-sm tracking-widest px-6">0 MB storage</span><span class="px-3 font-black">✦</span>
-    <span class="font-headline font-black uppercase text-sm tracking-widest px-6">0% uptime guaranteed</span><span class="px-3 font-black">✦</span>
-    <span class="font-headline font-black uppercase text-sm tracking-widest px-6">SOC-2 Compliant (lies)</span><span class="px-3 font-black">✦</span>
-    <span class="font-headline font-black uppercase text-sm tracking-widest px-6">Trusted by nobody</span><span class="px-3 font-black">✦</span>
-    <span class="font-headline font-black uppercase text-sm tracking-widest px-6">AI-powered nothingness</span><span class="px-3 font-black">✦</span>
-  </div>
-</div>
-
-
-<!-- ══════════════════════════════════════
      HERO
 ══════════════════════════════════════ -->
-<section id="hero" class="relative overflow-hidden" style="background:var(--ivory);">
+<section id="hero" class="relative flex flex-col items-center justify-center text-center overflow-hidden" style="background:var(--ivory);min-height:100svh;padding-top:68px;">
 
-  <!-- BG grid -->
-  <div class="absolute inset-0 pointer-events-none" style="opacity:0.04;">
+  <!-- Subtle grid BG -->
+  <div class="absolute inset-0 pointer-events-none" style="opacity:0.035;">
     <svg width="100%" height="100%"><defs><pattern id="g" width="48" height="48" patternUnits="userSpaceOnUse"><path d="M48 0L0 0 0 48" fill="none" stroke="#0A0A0A" stroke-width="1"/></pattern></defs><rect width="100%" height="100%" fill="url(#g)"/></svg>
   </div>
 
-  <!-- Decorative corner -->
-  <div class="absolute top-0 right-0 w-96 h-96 opacity-30 pointer-events-none" style="background:var(--blue-light);clip-path:polygon(100% 0,100% 100%,0 0);"></div>
+  <!-- Red corner accent top-right -->
+  <div class="absolute top-0 right-0 pointer-events-none" style="width:220px;height:220px;background:var(--red);clip-path:polygon(100% 0,100% 100%,0 0);opacity:0.08;"></div>
+  <!-- Yellow corner accent bottom-left -->
+  <div class="absolute bottom-0 left-0 pointer-events-none" style="width:160px;height:160px;background:var(--yellow);clip-path:polygon(0 0,100% 100%,0 100%);opacity:0.12;"></div>
 
-  <div class="max-w-7xl mx-auto px-6 md:px-10 py-20 md:py-28 relative z-10">
-    <div class="grid lg:grid-cols-2 gap-12 xl:gap-20 items-center">
+  <div class="relative z-10 w-full max-w-6xl mx-auto px-6 md:px-10 py-16">
 
-      <!-- LEFT -->
-      <div>
-        <div class="reveal">
-          <span class="inline-flex items-center gap-2 border-2 border-ink px-3 py-1.5 text-xs font-headline font-bold uppercase tracking-widest nb mb-8" style="background:var(--yellow);">
-            <span class="w-2 h-2 rounded-full bg-ink inline-block"></span>
-            Version 0.0.0 — Stable
-          </span>
-        </div>
-
-        <h1 class="font-headline font-black leading-[0.87] tracking-tighter mb-8">
-          <div class="reveal d1 text-[clamp(2.8rem,8vw,6rem)] uppercase" style="color:var(--ink)">The world's</div>
-          <div class="reveal d2 text-[clamp(2.8rem,8vw,6rem)] uppercase" style="color:var(--ink)">
-            first <span style="color:var(--red);font-style:italic;">SaaS</span>
-          </div>
-          <div class="reveal d3 text-[clamp(2.8rem,8vw,6rem)] uppercase" style="color:var(--ink)">that does</div>
-          <div class="reveal d4 text-[clamp(2.8rem,8vw,6rem)] uppercase" style="color:var(--ink)">absolutely</div>
-          <div class="reveal d5 text-[clamp(2.8rem,8vw,6rem)] uppercase inline-flex items-baseline gap-4">
-            <span style="color:var(--ink)">nothing.</span>
-            <span class="border-4 border-ink px-2 py-0 text-[clamp(1rem,2.5vw,2rem)] font-black align-middle nb" style="background:var(--blue);color:#fff;">™</span>
-          </div>
-        </h1>
-
-        <p class="reveal d5 text-lg md:text-xl max-w-xl mb-10 leading-relaxed font-body" style="color:var(--ink-2);">
-          Finally, a platform as empty as your calendar on a Sunday.<br/>
-          No features, no bugs, no updates. Just pure, unadulterated void.
-        </p>
-
-        <div class="reveal d5 flex flex-col sm:flex-row gap-4">
-          <button class="font-headline font-black text-lg uppercase px-8 py-5 border-4 border-ink nb-btn nb-xl text-white" style="background:var(--red);">
-            Start Your Void Journey →
-          </button>
-          <button class="font-headline font-bold text-sm uppercase px-6 py-5 border-4 border-ink nb-btn nb hover:bg-ink hover:text-ivory transition-colors">
-            Watch Nothing Happen
-          </button>
-        </div>
-
-        <!-- Social proof -->
-        <div class="reveal mt-10 flex items-center gap-5">
-          <div class="flex -space-x-3">
-            <div class="w-9 h-9 rounded-full border-2 border-ink flex items-center justify-center text-xs font-black" style="background:var(--yellow)">N</div>
-            <div class="w-9 h-9 rounded-full border-2 border-ink flex items-center justify-center text-xs font-black" style="background:var(--blue);color:#fff">O</div>
-            <div class="w-9 h-9 rounded-full border-2 border-ink flex items-center justify-center text-xs font-black" style="background:var(--red);color:#fff">N</div>
-            <div class="w-9 h-9 rounded-full border-2 border-ink flex items-center justify-center text-xs font-black" style="background:var(--yellow)">E</div>
-          </div>
-          <p class="text-xs font-bold uppercase tracking-widest" style="color:var(--ink-2)">
-            <span style="color:var(--red)">0 users</span> doing nothing right now
-          </p>
-        </div>
-      </div>
-
-      <!-- RIGHT: void canvas -->
-      <div class="reveal d3 relative">
-        <div class="absolute -top-6 -left-6 w-48 h-48 border-4 border-ink float-slow" style="background:var(--yellow);z-index:-1;"></div>
-        <div class="absolute -bottom-6 -right-6 w-32 h-32 border-4 border-ink float" style="background:var(--blue-light);z-index:-1;"></div>
-
-        <div class="border-4 border-ink nb-xl bg-ink p-6 relative cursor-pointer" onclick="voidClick(this)">
-          <div class="w-full aspect-square relative overflow-hidden flex items-center justify-center" style="background:#0A0A0A;">
-            <div class="absolute w-[85%] h-[85%] rounded-full border-2 spin-slow" style="border-color:rgba(255,230,0,0.2)"></div>
-            <div class="absolute w-[65%] h-[65%] rounded-full border-2 spin-rev" style="border-color:rgba(232,33,26,0.3)"></div>
-            <div class="absolute w-[42%] h-[42%] rounded-full border-2 spin-slow" style="border-color:rgba(26,26,255,0.4);animation-duration:7s"></div>
-            <div class="absolute w-16 h-16 rounded-full pulse-ring" style="background:var(--yellow);opacity:0.15;"></div>
-            <div id="orb" class="w-14 h-14 rounded-full border-2 border-ink float transition-all duration-500" style="background:var(--yellow);box-shadow:0 0 40px 10px rgba(255,230,0,0.4);"></div>
-            <span class="absolute top-3 left-3 text-[10px] font-headline font-black uppercase tracking-widest" style="color:rgba(255,230,0,0.5)">VOID.EXE</span>
-            <span class="absolute bottom-3 right-3 text-[10px] font-headline font-black uppercase tracking-widest" style="color:rgba(255,230,0,0.5)">STATUS: EMPTY</span>
-          </div>
-
-          <div class="flex items-center justify-between mt-4">
-            <div>
-              <p class="font-headline font-black text-sm uppercase text-white">Live Void Feed</p>
-              <p class="text-xs font-body mt-0.5" style="color:#666">Last event: never</p>
-            </div>
-            <div class="border-2 px-3 py-1" style="background:var(--yellow);border-color:var(--yellow);">
-              <span class="font-headline font-black text-xs uppercase text-ink">0 events</span>
-            </div>
-          </div>
-        </div>
-      </div>
-
+    <!-- Badge -->
+    <div class="reveal flex justify-center mb-10">
+      <span class="inline-flex items-center gap-2 border-2 border-ink px-4 py-2 text-xs font-headline font-bold uppercase tracking-widest nb" style="background:var(--yellow);">
+        <span class="w-2 h-2 rounded-full bg-ink inline-block"></span>
+        Version 0.0.0 — Stable
+      </span>
     </div>
+
+    <!-- MASSIVE headline -->
+    <h1 class="font-headline font-black uppercase tracking-tighter leading-[0.85] mb-10">
+      <div class="reveal d1" style="font-size:clamp(3.2rem,10vw,9.5rem);color:var(--ink)">The world's</div>
+      <div class="reveal d2" style="font-size:clamp(3.2rem,10vw,9.5rem);color:var(--ink)">
+        first <em style="color:var(--red);font-style:italic;">SaaS</em>
+      </div>
+      <div class="reveal d3" style="font-size:clamp(3.2rem,10vw,9.5rem);color:var(--ink)">that does</div>
+      <div class="reveal d4" style="font-size:clamp(3.2rem,10vw,9.5rem);color:var(--ink)">absolutely</div>
+      <div class="reveal d5 inline-flex items-baseline justify-center gap-4 flex-wrap" style="font-size:clamp(3.2rem,10vw,9.5rem);color:var(--ink)">
+        nothing.
+        <span class="border-4 border-ink px-2 font-black nb align-middle" style="font-size:clamp(1rem,2.5vw,2.2rem);background:var(--blue);color:#fff;line-height:1.6;">™</span>
+      </div>
+    </h1>
+
+    <!-- Subtitle -->
+    <p class="reveal d5 font-body text-lg md:text-xl mb-10 mx-auto leading-relaxed" style="max-width:540px;color:var(--ink-2);">
+      Finally, a platform as empty as your calendar on a Sunday.
+      No features, no bugs, no updates. Pure, unadulterated void.
+    </p>
+
+    <!-- CTAs -->
+    <div class="reveal d5 flex flex-col sm:flex-row gap-4 justify-center mb-12">
+      <button class="font-headline font-black text-lg uppercase px-10 py-5 border-4 border-ink nb-btn nb-xl text-white" style="background:var(--red);">
+        Start Your Void Journey →
+      </button>
+      <button class="font-headline font-bold text-sm uppercase px-8 py-5 border-4 border-ink nb-btn nb hover:bg-ink hover:text-ivory transition-colors">
+        Watch Nothing Happen
+      </button>
+    </div>
+
+    <!-- Social proof -->
+    <div class="reveal flex items-center justify-center gap-4">
+      <div class="flex -space-x-3">
+        <div class="w-9 h-9 rounded-full border-2 border-ink flex items-center justify-center text-xs font-black" style="background:var(--yellow)">N</div>
+        <div class="w-9 h-9 rounded-full border-2 border-ink flex items-center justify-center text-xs font-black" style="background:var(--blue);color:#fff">O</div>
+        <div class="w-9 h-9 rounded-full border-2 border-ink flex items-center justify-center text-xs font-black" style="background:var(--red);color:#fff">N</div>
+        <div class="w-9 h-9 rounded-full border-2 border-ink flex items-center justify-center text-xs font-black" style="background:var(--yellow)">E</div>
+      </div>
+      <p class="text-xs font-bold uppercase tracking-widest" style="color:var(--ink-2)">
+        <span style="color:var(--red)">0 users</span> doing nothing right now
+      </p>
+    </div>
+
   </div>
+
+  <!-- Scroll hint -->
+  <div class="absolute bottom-8 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2 reveal" style="color:var(--ink-2);">
+    <span class="font-headline font-bold text-xs uppercase tracking-widest">Scroll for more</span>
+    <span class="material-symbols-outlined" style="font-size:20px;animation:float 2s ease-in-out infinite;">keyboard_arrow_down</span>
+  </div>
+
 </section>
 
 
