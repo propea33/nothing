@@ -1,0 +1,19 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" width="32" height="32">
+  <!-- Black background -->
+  <rect width="32" height="32" fill="#0A0A0A"/>
+  <!-- Neo-brutal border (inner offset shadow) -->
+  <rect x="1" y="1" width="28" height="28" fill="none" stroke="#FFE600" stroke-width="1.5"/>
+  <!-- Bold N -->
+  <text
+    x="16"
+    y="23"
+    font-family="'Space Grotesk', Arial Black, sans-serif"
+    font-size="20"
+    font-weight="900"
+    text-anchor="middle"
+    fill="#FFFEF2"
+    letter-spacing="-1"
+  >N</text>
+  <!-- Red dot -->
+  <circle cx="24" cy="10" r="3" fill="#E8211A"/>
+</svg>
