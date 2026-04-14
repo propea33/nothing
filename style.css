@@ -88,8 +88,8 @@ body { font-family: 'Manrope', sans-serif; background: var(--ivory); color: var(
 #mobile-nav { max-height: 0; overflow: hidden; transition: max-height 0.35s ease; }
 #mobile-nav.open { max-height: 500px; }
 
-.faq-body { max-height: 0; overflow: hidden; transition: max-height 0.3s ease; }
-.faq-body.open { max-height: 200px; }
+.faq-body { max-height: 0; overflow: hidden; transition: max-height 0.5s ease; }
+.faq-body.open { max-height: 600px; }
 
 .strike { position: relative; color: #9a9a9a; }
 .strike::after {
